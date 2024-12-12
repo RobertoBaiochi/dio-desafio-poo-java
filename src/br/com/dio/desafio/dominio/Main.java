@@ -14,8 +14,6 @@ public class Main {
         curso2.setDescricao("Descrição curso JavaScript");
         curso2.setCargaHoraria(4);
 
-        System.out.println(curso1);
-        System.out.println(curso2);
 
 
         Mentoria mentoria1 = new Mentoria();
@@ -23,6 +21,41 @@ public class Main {
         mentoria1.setDescricao("Descriação mentoria1 Java");
         mentoria1.setData(LocalDate.now());
 
-        System.out.println(mentoria1);
+//        System.out.println(curso1);
+//        System.out.println(curso2);
+//        System.out.println(mentoria1);
+
+        Bootcamp bootcamp1 = new Bootcamp();
+        bootcamp1.setNome("Bootcamp Java Developer");
+        bootcamp1.setDescricao("Descrição bootcamp java Developer");
+        bootcamp1.getConteudos().add(curso1);
+        bootcamp1.getConteudos().add(curso2);
+        bootcamp1.getConteudos().add(mentoria1);
+
+
+        Dev devRoberto = new Dev();
+        devRoberto.setNome("Roberto");
+        devRoberto.inscreverBootcamp(bootcamp1);
+        System.out.println("Conteudos Inscritos " + devRoberto.getConteudosInscritos());
+        devRoberto.progredir();
+        devRoberto.progredir();
+        devRoberto.progredir();
+        System.out.println("-----------------------------");
+        System.out.println("Conteudos Inscritos " + devRoberto.getConteudosInscritos());
+        System.out.println("Conteudos Finalizados " + devRoberto.getConteudosFinalizados());
+        System.out.println("Calcular XP " + devRoberto.calcularTotalXp());
+
+        System.out.println("-----------------------------");
+
+        Dev devCamila = new Dev();
+        devCamila.setNome("Camila");
+        devCamila.inscreverBootcamp(bootcamp1);
+        System.out.println("Conteudos Inscritos " + devCamila.getConteudosInscritos());
+        devCamila.progredir();
+        devCamila.progredir();
+        System.out.println("-----------------------------");
+        System.out.println("Conteudos Inscritos " + devCamila.getConteudosInscritos());
+        System.out.println("Conteudos Finalizados " + devCamila.getConteudosFinalizados());
+        System.out.println("Calcular XP " + devCamila.calcularTotalXp());
     }
 }
